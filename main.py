@@ -4,12 +4,14 @@ by HUYBRECHTS Louis
 22/12/2023
 
 Télécharge l'audio d'une vidéo Youtube au format mp4.
-L'utilisateur doit préciser dans les variables suivantes :
-- YOUTUBE_URL : L'url de la vidéo Youtube à télécharger.
-- OUTPUT_PATH : le chemin du dossier où sera téléchargée la vidéo.
+L'utilisateur doit passer en paramètres certains arguments à l'appel du script :
+- url : L'url de la vidéo Youtube à télécharger.
+- output : Le chemin du dossier où sera téléchargée la vidéo.
   Si le dossier n'existe pas, il est créé.
+  Par défaut, le fichier sera téléchargé dans un dossier download_arguments situé dans le dossier courant.
 """
 import os
+import argparse
 from pytube import YouTube
 
 
@@ -35,5 +37,15 @@ def download_audio(url: str, output_path: str = '.'):
 
 
 if __name__ == '__main__':
-    os.makedirs(OUTPUT_PATH, exist_ok=True)
-    download_audio(YOUTUBE_URL, OUTPUT_PATH)
+    parser = argparse.ArgumentParser(description="Télécharge l'audio d'une vidéo YouTube au format audio mp4.")
+    parser.add_argument('url', type=str, help="URL de la vidéo YouTube")
+    parser.add_argument(
+        '-o', '--output',
+        type=str, default='./download_audios',
+        help="Chemin de sortie (par défaut: dossier courant)"
+    )
+    args = parser.parse_args()
+
+    os.makedirs(args.output, exist_ok=True)
+
+    download_audio(args.url, args.output)
