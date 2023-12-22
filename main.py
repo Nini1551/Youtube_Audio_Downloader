@@ -35,16 +35,33 @@ def download_audio(url: str, output_path: str = '.'):
     audio_stream.download(output_path)
     print("Téléchargement terminé.")
 
-
-if __name__ == '__main__':
+def get_args() -> argparse.Namespace:
+    """
+    Crée et fournit un utilitaire des arguments du script lancé
+    PRE : Les arguments suivants doivent être précisés au lancement du script.
+            - L'url d'une vidéo Youtube publique et non-limitée aux utilisateurs majeurs
+            - -o (--output) : chemin du dossier dans lequel le fichier mp4 sera téléchargée
+              Par défaut, les fichiers seront téléchargées dans le dossier courant.
+    POST : Renvoie l'utilitaire des arguments du cript lancé aux propriétés suivantes:
+           - url (str): url d'une vidéo Youtube publique et non-limitée aux utilisateurs majeurs
+           - output_path (str): chemin du dossier dans lequel le fichier mp4 sera téléchargée
+    """
     parser = argparse.ArgumentParser(description="Télécharge l'audio d'une vidéo YouTube au format audio mp4.")
-    parser.add_argument('url', type=str, help="URL de la vidéo YouTube")
+    parser.add_argument(
+        'url',
+        type=str,
+        help="URL de la vidéo YouTube"
+    )
     parser.add_argument(
         '-o', '--output',
         type=str, default='./download_audios',
         help="Chemin de sortie (par défaut: dossier courant)"
     )
-    args = parser.parse_args()
+    return parser.parse_args()
+
+
+if __name__ == '__main__':
+    args = get_args()
 
     os.makedirs(args.output, exist_ok=True)
 
