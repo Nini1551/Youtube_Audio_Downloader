@@ -14,10 +14,6 @@ import os
 import argparse
 from pytube import YouTube
 
-
-YOUTUBE_URL = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley'
-OUTPUT_PATH = './download_audios'
-
 def download_audio(url: str, output_path: str = '.'):
     """
     Télécharge l'audio d'une vidéo Youtube au format mp4
