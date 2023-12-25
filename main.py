@@ -63,7 +63,7 @@ def download_audio(url: str, output_path: str = '.', display_progress: bool = Fa
 
 def download_audios_from_file(filename: str, output_path: str = '.', display_progress: bool = False):
     """
-
+    Télécharge l'audio de plusieurs vidéos Youtube au format mp4.
     PRE : - filename : nom d'un fichier texte composé d'urls de vidéos Youtube séparées par un retour à la ligne
           - output_path: chemin du dossier dans lequel les fichiers mp4 seront téléchargés
             Par défaut, les fichiers seront téléchargés dans le dossier courant.
