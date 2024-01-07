@@ -1,3 +1,6 @@
+"""
+GUI de l'application YoutubeAudioDownloader.
+"""
 import os
 import webbrowser
 from lib.youtube_downloader import download_audio
