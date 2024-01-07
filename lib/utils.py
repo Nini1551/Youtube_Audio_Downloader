@@ -1,8 +1,18 @@
 """
-Définition du parser du projet Youtube Audio Downloader
+Librairie des fonctions utilitaires du projet YoutubeAudioDownloader.
 """
 import argparse
-from lib.youtube_downloader import get_downloads_folder
+from pathlib import Path
+
+
+def get_downloads_folder() -> str:
+    """
+    Fournit le fichier de téléchargements de l'utilisateur.
+    PRE : -
+    POST : le fichier de téléchargements de l'utilisateur.
+    """
+    user_home = str(Path.home())
+    return user_home + "/Downloads"
 
 def get_args() -> argparse.Namespace:
     """

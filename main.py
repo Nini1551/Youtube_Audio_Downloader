@@ -18,7 +18,7 @@ L'utilisateur doit passer en paramètres certains arguments à l'appel du script
   Par défaut, le script est lancée en cli.
 """
 import os
-from lib.args import get_args
+from lib.utils import get_args
 from lib.youtube_downloader import download_audio, download_audios_from_file
 from app import YoutubeAudioDownloaderGUI
 

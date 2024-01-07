@@ -3,17 +3,9 @@ Librairie des fonctions du projet Youtube Audio Downloader liées à la librairi
 """
 import time
 import os
-from pathlib import Path
 from pytube import YouTube
+from lib.utils import get_downloads_folder
 
-def get_downloads_folder() -> str:
-    """
-    Fournit le fichier de téléchargements de l'utilisateur.
-    PRE : -
-    POST : le fichier de téléchargements de l'utilisateur.
-    """
-    user_home = str(Path.home())
-    return user_home + "/Downloads"
 
 def on_progress(stream, chunk, bytes_remaining: int):
     """
