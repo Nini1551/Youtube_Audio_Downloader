@@ -8,7 +8,7 @@ L'utilisateur doit passer en paramètres certains arguments à l'appel du script
   Par défaut, une surprise vous attend.
 - output : Le chemin du dossier où sera téléchargée la vidéo.
   Si le dossier n'existe pas, il est créé.
-  Par défaut, le fichier sera téléchargé dans un dossier download_arguments situé dans le dossier courant.
+  Par défaut, le fichier sera téléchargé dans le dossier Téléchargement de l'utilisateur.
 - progress : Si la progression du téléchargement doit être affichée ou non.
   Par défaut, la progression ne sera pas affichée.
 - -f (--file) : fichier texte composé d'urls de vidéo Youtube à télécharger séparées par des retours à la ligne.

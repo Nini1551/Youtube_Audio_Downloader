@@ -2,8 +2,13 @@
 Librairie des fonctions du projet Youtube Audio Downloader liées à la librairie pytube.
 """
 import time
+import os
+from pathlib import Path
 from pytube import YouTube
 
+def get_downloads_folder() -> str:
+    user_home = str(Path.home())
+    return user_home + "/Downloads"
 
 def on_progress(stream, chunk, bytes_remaining: int):
     """
@@ -20,12 +25,12 @@ def on_progress(stream, chunk, bytes_remaining: int):
     percentage = (bytes_downloaded / total_bytes) * 100
     print(f"Téléchargement en cours... {percentage:.2f}%")
 
-def download_audio(url: str, output_path: str = '.', display_progress: bool = False):
+def download_audio(url: str, output_path: str = get_downloads_folder(), display_progress: bool = False):
     """
     Télécharge l'audio d'une vidéo Youtube au format mp4
     PRE : - url: url d'une vidéo Youtube publique et non-limitée aux utilisateurs majeurs
           - output_path: chemin du dossier dans lequel le fichier mp4 sera téléchargé
-            Par défaut, le fichier sera téléchargé dans le dossier courant.
+            Par défaut, le fichier sera téléchargé dans le dossier Téléchargements de l'utilisateur.
           - display_progress: un booléen
             Par défaut, faux
     POST : Télécharge l'audio d'une vidéo Youtube au format mp4 via son url.

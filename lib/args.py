@@ -2,7 +2,7 @@
 Définition du parser du projet Youtube Audio Downloader
 """
 import argparse
-
+from lib.youtube_downloader import get_downloads_folder
 
 def get_args() -> argparse.Namespace:
     """
@@ -11,7 +11,7 @@ def get_args() -> argparse.Namespace:
             - L'url d'une vidéo Youtube publique et non-limitée aux utilisateurs majeurs
               Par défaut, une chaîne vide (surprise ...)
             - -o (--output) : chemin du dossier dans lequel le fichier mp4 sera téléchargée
-              Par défaut, les fichiers seront téléchargées dans le dossier courant.
+              Par défaut, les fichiers seront téléchargées dans le dossier Téléchargements de l'utilisateur.
             - --progress : stocke vrai
             - -f (--file) : nom d'un fichier texte ou None (pas obligatoire).
               Le fichier texte est composé d'urls de vidéos Youtube séparées par un retour à la ligne.
@@ -30,13 +30,13 @@ def get_args() -> argparse.Namespace:
     )
     parser.add_argument(
         '-o', '--output',
-        type=str, default='./downloaded_audios',
+        type=str, default=get_downloads_folder(),
         help="Chemin de sortie (par défaut: dossier courant)"
     )
     parser.add_argument(
         '-f', '--file',
         type=str, default=None,
-        help="Fichier texte composé d'urls de vidéo Youtube à télécharger séparées par des retours à la ligne"
+        help="Fichier texte composé d'URLs de vidéo Youtube à télécharger séparées par des retours à la ligne"
     )
     parser.add_argument(
         '--progress',

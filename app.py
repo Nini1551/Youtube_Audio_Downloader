@@ -11,7 +11,7 @@ def index():
 @app.route('/download', methods=['POST'])
 def download():
     url = request.form.get('url')
-    download_audio(url, './downloaded_audios')
+    download_audio(url)
     return redirect('/')
 
 
