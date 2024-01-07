@@ -7,6 +7,11 @@ from pathlib import Path
 from pytube import YouTube
 
 def get_downloads_folder() -> str:
+    """
+    Fournit le fichier de téléchargements de l'utilisateur.
+    PRE : -
+    POST : le fichier de téléchargements de l'utilisateur.
+    """
     user_home = str(Path.home())
     return user_home + "/Downloads"
 
