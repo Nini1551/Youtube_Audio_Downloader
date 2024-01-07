@@ -16,11 +16,13 @@ def get_args() -> argparse.Namespace:
             - -f (--file) : nom d'un fichier texte ou None (pas obligatoire).
               Le fichier texte est composé d'urls de vidéos Youtube séparées par un retour à la ligne.
               Par défaut, None
+            - --gui : stocke vrai
     POST : Renvoie l'utilitaire des arguments du cript lancé aux propriétés suivantes:
            - url (str) : url d'une vidéo Youtube publique et non-limitée aux utilisateurs majeurs
            - output_path (str) : chemin du dossier dans lequel le fichier mp4 sera téléchargée
            - progress (bool) : si la progression du téléchargement doit être affichée ou non
            - file (str) : fichier texte composé d'urls de vidéo Youtube à télécharger séparées par des retours à la ligne
+           - gui (bool) : si l'utilisateur veut ouvrir le GUI de l'application.
     """
     parser = argparse.ArgumentParser(description="Télécharge l'audio d'une vidéo YouTube au format audio mp4.")
     parser.add_argument(
@@ -42,5 +44,10 @@ def get_args() -> argparse.Namespace:
         '--progress',
         action='store_true',
         help="Si la progression du téléchargement doit être affichée ou non"
+    )
+    parser.add_argument(
+        '--gui',
+        action='store_true',
+        help="Ouvre le GUI de l'application"
     )
     return parser.parse_args()
