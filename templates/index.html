@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Youtube Audio Downloader</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/index.css') }}">
 </head>
 <body>
-    <h1>Youtube Audio Downloader</h1>
-    <form method="post" action="/download">
-        <label for="url">Enter a Youtube url:</label>
-        <input type="text" id="url" name="url" required>
-        <button type="submit">Download Audio</button>
-    </form>
+<main>
+    <div id="downloader">
+        <h1 id="yt_title">Youtube Audio Downloader</h1>
+        <form method="post" action="/download">
+            <label for="url">Youtube URL:</label>
+            <input type="text" id="url" name="url" required>
+            <button type="submit">Download Audio</button>
+        </form>
+    </div>
+</main>
+<footer>
+    <p>by HUYBRECHTS Louis</p>
+</footer>
 </body>
 </html>
