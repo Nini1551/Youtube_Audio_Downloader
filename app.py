@@ -56,7 +56,14 @@ class YoutubeAudioDownloaderGUI:
         webbrowser.open_new(self.APP_URL)
 
     def run(self, forced_window=False):
-
+        """
+        Lance le GUI de l'application YoutubeAudioDownloader.
+        PRE: - forced_window : booléen
+               Par défaut, faux
+        POST: Lance le GUI web de l'application YoutubeAudioDownloader qur l'adresse locale.
+              L'utilisateur pourra télécharger des vidéos Youtube via l'URL de celles-ci.
+              Si l'option forced_window est activée, ouvre une page du navigateur sur l'application.
+        """
         if forced_window:
             self.open_browser()
 
@@ -65,4 +72,4 @@ class YoutubeAudioDownloaderGUI:
 
 if __name__ == '__main__':
     app = YoutubeAudioDownloaderGUI()
-    app.run(forced_window=True)
+    app.run(forced_window=False)
